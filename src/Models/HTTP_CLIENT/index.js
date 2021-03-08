@@ -11,19 +11,22 @@ const { HTTP_CLIENT } = require("./HTTP_CLIENT");
  */
 class Http {
 	constructor(Bot) {
-		this.Bot = Bot
+		this.Bot = Bot;
 		this.ENDPOINT = "https://api.awn.gg/v5";
-		this.DefaultTimeout = TimeSpan.fromSeconds(6)
-		this.UserAgent = new ProductInfoHeaderValue("AWN.js",require("../../../package.json").version);
-		this.DEBUG_REQUESTS = false
+		this.DefaultTimeout = TimeSpan.fromSeconds(6);
+		this.UserAgent = new ProductInfoHeaderValue(
+			"AWN.js",
+			require("../../../package.json").version
+		);
+		this.DEBUG_REQUESTS = false;
 		this._currentAuthenticationToken = null;
-		this.HttpClient = new HTTP_CLIENT
+		this.HttpClient = new HTTP_CLIENT();
 	}
-	OnError(...err){
-		throw Error(err)
+	OnError(...err) {
+		throw Error(err);
 	}
-	OnDebug(...info){
-		console.log(...info)
+	OnDebug(...info) {
+		console.log(...info);
 	}
 	/**
 	 * Make a Get Request
@@ -150,7 +153,9 @@ class Http {
 		}
 		var httpRequestMessage = new HttpRequestMessage(method, resource);
 		if ((this._currentAuthenticationToken != null) & flag) {
-			httpRequestMessage.Headers["X-AWN-ACCESS-TOKEN"] = this._currentAuthenticationToken;
+			httpRequestMessage.Headers[
+				"X-AWN-ACCESS-TOKEN"
+			] = this._currentAuthenticationToken;
 		}
 		httpRequestMessage.Headers.UserAgent = this.UserAgent.Value();
 		return httpRequestMessage;
@@ -168,7 +173,7 @@ class Http {
 		message.Headers["Content-Type"] = "application/json";
 		if (entity) message.Content = JSON.stringify(entity);
 	}
-	
+
 	/**
 	 * Run a {@link #httprequestmessage HttpRequest}
 	 * @see Http#CreateRequest
