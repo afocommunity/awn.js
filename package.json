@@ -20,10 +20,11 @@
   },
   "homepage": "https://github.com/PolyLogiX-Studio/awn.js#readme",
   "dependencies": {
-    "dotenv": "^8.2.0",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.1",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "dotenv": "^8.2.0",
     "eslint": "^7.21.0",
     "prettier": "^2.2.1"
   }

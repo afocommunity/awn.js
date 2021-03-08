@@ -1,7 +1,8 @@
 dependencies:
-  dotenv: 8.2.0
   node-fetch: 2.6.1
+  uuid: 8.3.2
 devDependencies:
+  dotenv: 8.2.0
   eslint: 7.21.0
   prettier: 2.2.1
 lockfileVersion: 5.2
@@ -211,7 +212,7 @@ packages:
     resolution:
       integrity: sha512-yS+Q5i3hBf7GBkd4KG8a7eBNNWNGLTaEwwYWUijIYM7zrlYDM0BFXHjjPWlWZ1Rg7UaddZeIDmi9jF3HmqiQ2w==
   /dotenv/8.2.0:
-    dev: false
+    dev: true
     engines:
       node: '>=8'
     resolution:
@@ -761,6 +762,11 @@ packages:
     dev: true
     resolution:
       integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==
+  /uuid/8.3.2:
+    dev: false
+    hasBin: true
+    resolution:
+      integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==
   /v8-compile-cache/2.3.0:
     dev: true
     resolution:
@@ -793,3 +799,4 @@ specifiers:
   eslint: ^7.21.0
   node-fetch: ^2.6.1
   prettier: ^2.2.1
+  uuid: ^8.3.2
