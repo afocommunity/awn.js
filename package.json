@@ -6,7 +6,7 @@
 	"scripts": {
 		"test": "node Tests/Test.js --unhandled-rejections=strict",
 		"lint": "prettier --use-tabs --write . && eslint -c .eslintrc.json --fix .",
-		"document": "jsdoc -t node_modules/docdash ./src/ -r -c jsdoc.json -d ./docs/",
+		"document": "jsdoc -t node_modules/docdash ./src/ -r -c jsdoc.json -d ./docs/ -u ./tutorials",
 		"ready": "npm run document && npm run lint"
 	},
 	"repository": {

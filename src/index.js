@@ -1,10 +1,19 @@
+/**
+ * Awn.js
+ * @fileoverview Library to interact with api.awn.gg
+ * @author {@link https://www.github.com/bombitmanbomb bombitmanbomb}
+ * @author {@link https://www.github.com/werewolfboy13 werewolfboy13}
+ * @license MIT
+ * @see AWN
+ */
+
 const { Http } = require("./Models/HTTP_CLIENT");
 const { EventEmitter } = require("events");
 const { TimeSpan } = require("./Models/Util/TimeSpan");
 const { Organization } = require("./Models/AWN/Organization");
 const { User } = require("./Models/AWN/User");
 /**
- *
+ * @module
  * @class AWN
  */
 class AWN {
@@ -12,13 +21,34 @@ class AWN {
 		this.Events = new EventEmitter();
 		this.Http = new Http();
 	}
+	//TODO IMPLIMENT Object Cache!!!!!
 	/**
-	 * Login
-	 * @param {string} username
-	 * @param {string} password
+	 * Login to awn. if no Username or Password is passed, AWN.js will use AWN_USERNAME & AWN_PASSWORD environment variables
+	 * @param {string} [username]
+	 * @param {string} [password]
 	 * @memberof AWN
 	 */
 	async Login(username, password) {
+		if (username == null && password == null) {
+			try {
+				if (
+					process.env.AWN_USERNAME == null ||
+					process.env.AWN_PASSWORD == null
+				) {
+					require("dotenv").config();
+				}
+				username = process.env.AWN_USERNAME;
+				password = process.env.AWN_PASSWORD;
+				if (username == null && password == null)
+					throw Error(
+						"AWN_USERNAME or AWN_PASSWORD not defined in environment variables"
+					);
+			} catch (error) {
+				throw new Error(
+					"call Login with Username & Password or install dotenv and define AWN_USERNAME & AWN_PASSWORD"
+				);
+			}
+		}
 		let result = await this.Http.POST(
 			"auth/login",
 			{ username, password },
@@ -26,8 +56,9 @@ class AWN {
 			true
 		);
 		if (result.IsOK && result.Entity.valid) {
-			this.Http._currentAuthenticationToken = result.Entity.accessToken;
-			this.Events.emit("login", result.Entity);
+			this.CurrentUser = result.Entity;
+			this.Http._currentAuthenticationToken = this.CurrentUser.accessToken;
+			this.Events.emit("login", this.CurrentUser);
 		} else {
 			this.Error(result.Entity.error);
 		}

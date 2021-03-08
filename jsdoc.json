@@ -34,14 +34,20 @@
 		"removeQuotes": "none",
 		"scripts": [],
 		"menu": {
-			"Project Website": {
-				"href": "https://github.com/PolyLogiX-Studio/Neos.js",
+			"AWN Portal": {
+				"href": "https://awn.gg/",
+				"target": "_blank",
+				"class": "menu-item",
+				"id": "website_link"
+			},
+			"Github": {
+				"href": "https://github.com/werewolfboy13/awn.js",
 				"target": "_blank",
 				"class": "menu-item",
 				"id": "website_link"
 			},
 			"Discussions": {
-				"href": "https://github.com/PolyLogiX-Studio/Neos.js/discussions",
+				"href": "https://github.com/werewolfboy13/awn.js/discussions",
 				"target": "_blank",
 				"class": "menu-item",
 				"id": "forum_link"
