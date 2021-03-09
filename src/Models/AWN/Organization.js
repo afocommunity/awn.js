@@ -2,6 +2,8 @@ const { User } = require("./User");
 const { Role } = require("./Role");
 const { DedicatedBox } = require("./DedicatedBox");
 const { Dictionary } = require("../Util/Dictionary");
+const { Instance } = require("./Instance");
+const { AdminList } = require("./AdminList");
 /**
  *
  * @class Organization
@@ -37,7 +39,7 @@ class Organization {
 	 */
 	async Fetch() {
 		let result = await this._Bot.Http.GET(`org/${this.id}`);
-		return this.SetProperties(result.Entity);
+		return this.SetProperties(result.Entity, this._Bot);
 	}
 	/**
 	 * Get Users
@@ -66,10 +68,34 @@ class Organization {
 			`org/${this.id}/dedicated-boxes/boxes`
 		);
 		for (let box of result.Entity) {
-			boxes.Add(box.id, new DedicatedBox(box, this._bot));
+			boxes.Add(box.id, new DedicatedBox(box, this._Bot));
 		}
 		this._boxes = boxes;
 		return boxes;
+	}
+	async FetchInstances() {
+		if (this._instances) return this._instances;
+		let instances = new Dictionary();
+		let result = await this._Bot.Http.GET(
+			`org/${this.id}/game-servers/instances`
+		);
+		for (let instance of result.Entity) {
+			instances.Add(instance.id, new Instance(instance, this._Bot));
+		}
+		this._instances = instances;
+		return instances;
+	}
+	async FetchAdminLists() {
+		if (this._adminLists) return this._adminLists;
+		let adminLists = new Dictionary();
+		let result = await this._Bot.Http.GET(
+			`org/${this.id}/game-servers/admin-lists`
+		);
+		for (let list of result.Entity) {
+			adminLists.AddOrUpdate(list.id, new AdminList(list, this._Bot, this.id));
+		}
+		this._adminLists = adminLists;
+		return adminLists;
 	}
 }
 module.exports = { Organization };

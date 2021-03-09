@@ -1,12 +1,34 @@
+const { Dictionary } = require("../Util/Dictionary");
 const { List } = require("../Util/List");
+const { AdminList } = require("./AdminList");
 const { Game } = require("./Game");
 /**
- *
  *
  * @class Instance
  */
 class Instance {
 	constructor($b, Bot) {
+		this.SetProperties($b, Bot);
+	}
+	async Fetch() {
+		this.SetProperties(
+			(
+				await this._Bot.Http.GET(
+					`org/${this.orgId}/game-servers/instances/${this.id}`
+				)
+			).Entity,
+			this._Bot
+		); //TODO Setup
+		return this;
+	}
+	/**
+	 *
+	 *
+	 * @param {*} $b
+	 * @param {*} Bot
+	 * @memberof Instance
+	 */
+	SetProperties($b, Bot) {
 		Object.defineProperty(this, "_Bot", { value: Bot, enumerable: false });
 		this.id = $b.id;
 		this.label = $b.label;
@@ -29,7 +51,15 @@ class Instance {
 		this.boxId = $b.boxId;
 		this.tagLine = $b.tagLine;
 		this.gameState = $b.gameState; //TODO GameState
-		this.adminLists = $b.adminLists; //TODO Setup Admin Lists
+		this.adminLists = new Dictionary();
+		if ($b.adminLists) {
+			for (let list of $b.adminLists) {
+				this.adminLists.AddOrUpdate(
+					list.id,
+					new AdminList(list, this._Bot, this.orgId)
+				);
+			}
+		}
 		this.banLists = List.ToList($b.banLists);
 		this.game = new Game($b.game, this._Bot);
 	}

@@ -19,7 +19,7 @@ const { User } = require("./Models/AWN/User");
 class AWN {
 	constructor() {
 		this.Events = new EventEmitter();
-		this.Http = new Http();
+		this.Http = new Http(this);
 	}
 	//TODO IMPLIMENT Object Cache!!!!!
 	/**

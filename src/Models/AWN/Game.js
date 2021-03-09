@@ -4,6 +4,10 @@
  */
 class Game {
 	constructor($b, Bot) {
+		this.SetProperties($b, Bot);
+	}
+	SetProperties($b, Bot) {
+		if ($b == null) $b = {};
 		Object.defineProperty(this, "_Bot", { value: Bot, enumerable: false });
 		this.id = $b.id;
 		this.publisherId = $b.publisherId;

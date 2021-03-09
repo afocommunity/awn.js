@@ -5,6 +5,9 @@
  */
 class User {
 	constructor($b, Bot) {
+		this.SetProperties($b, Bot);
+	}
+	SetProperties($b, Bot) {
 		Object.defineProperty(this, "_Bot", { value: Bot, enumerable: false });
 		this.id = $b.id;
 		this.name = $b.name;
