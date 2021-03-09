@@ -12,6 +12,11 @@ class Admin {
 		this.listId = $b.listId || listIdOverride;
 		this.orgId = $b.orgId || orgIdOverride;
 	}
+	/**
+	 * Update the Model to latest data
+	 * @returns {Admin}
+	 * @memberof Admin
+	 */
 	async Fetch() {
 		if (this.listId == null)
 			this.SetProperties(
@@ -24,6 +29,13 @@ class Admin {
 			);
 		return this;
 	}
+	/**
+	 * Remove self from list (If refrenced from AdminList)
+	 *
+	 * Else returns error
+	 * @returns {CloudResult}
+	 * @memberof Admin
+	 */
 	async Remove() {
 		if (this.id == null || this.listId == null)
 			return new Error("Invalid OrgID or ListID");

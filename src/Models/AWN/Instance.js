@@ -10,6 +10,12 @@ class Instance {
 	constructor($b, Bot) {
 		this.SetProperties($b, Bot);
 	}
+	/**
+	 * Fetch latest data
+	 *
+	 * @returns Instance
+	 * @memberof Instance
+	 */
 	async Fetch() {
 		this.SetProperties(
 			(

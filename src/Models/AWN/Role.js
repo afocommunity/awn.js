@@ -7,6 +7,12 @@ class Role {
 	constructor($b, Bot) {
 		this.SetProperties($b, Bot);
 	}
+	/**
+	 * Get Latest Data
+	 *
+	 * @returns {Role}
+	 * @memberof Role
+	 */
 	async Fetch() {
 		this.SetProperties(
 			(await this._Bot.Http.GET(`org/${this.orgId}/roles/${this.id}`)).Entity,

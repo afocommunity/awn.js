@@ -9,6 +9,11 @@ class AdminList {
 	constructor($b, Bot, orgIdOverride = null) {
 		this.SetProperties($b, Bot, orgIdOverride);
 	}
+	/**
+	 * Update self to Latest Data
+	 * @returns {AdminList}
+	 * @memberof AdminList
+	 */
 	async Fetch() {
 		this.SetProperties(
 			(
@@ -50,6 +55,12 @@ class AdminList {
 		}
 		this.instances = $b.instances; // TODO Setup Instances
 	}
+	/**
+	 * Remove Admin from list, Accepts internalID or steam64 string
+	 * @param {string | number} AdminId
+	 * @returns {{id:number} | false}
+	 * @memberof AdminList
+	 */
 	async RemoveAdmin(AdminId) {
 		if (this.admins.ContainsKey(parseInt(AdminId))) {
 			let result = await this._Bot.Http.DELETE(
@@ -68,6 +79,13 @@ class AdminList {
 		}
 		return false;
 	}
+	/**
+	 * Remove Admin from list, Accepts internalID or steam64 string
+	 * @param {"awn_identity"|"steam64"} type
+	 * @param {string} value
+	 * @returns {{id:number}}
+	 * @memberof AdminList
+	 */
 	async AddAdmin(type, value) {
 		let result = await this._Bot.Http.POST(
 			`org/${this.orgId}/game-servers/admin-lists/${this.id}/admins`,

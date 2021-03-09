@@ -43,7 +43,7 @@ class Organization {
 	}
 	/**
 	 * Get Users
-	 * @returns {Dictionary<Users>}
+	 * @returns {Dictionary<number, Users>}
 	 * @memberof Organization
 	 */
 	async FetchUsers() {
@@ -58,7 +58,7 @@ class Organization {
 	}
 	/**
 	 * Get Server Boxes
-	 * @returns {Dictionary<DedicatedBox>}
+	 * @returns {Dictionary<number, DedicatedBox>}
 	 * @memberof Organization
 	 */
 	async FetchBoxes() {
@@ -73,6 +73,12 @@ class Organization {
 		this._boxes = boxes;
 		return boxes;
 	}
+	/**
+	 * Get Instances
+	 *
+	 * @returns {Dictionary<number, Instance>}
+	 * @memberof Organization
+	 */
 	async FetchInstances() {
 		if (this._instances) return this._instances;
 		let instances = new Dictionary();
@@ -85,6 +91,12 @@ class Organization {
 		this._instances = instances;
 		return instances;
 	}
+	/**
+	 * Get Admin Lists
+	 *
+	 * @returns {Dictionary<number, AdminList>}
+	 * @memberof Organization
+	 */
 	async FetchAdminLists() {
 		if (this._adminLists) return this._adminLists;
 		let adminLists = new Dictionary();
