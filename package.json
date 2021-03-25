@@ -1,6 +1,6 @@
 {
 	"name": "awnjs",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"description": "API Library for awn.gg",
 	"main": "src/index",
 	"scripts": {
@@ -11,7 +11,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/PolyLogiX-Studio/awn.js.git"
+		"url": "git+https://github.com/werewolfboy13/awn.js.git"
 	},
 	"keywords": [
 		"API"
@@ -19,9 +19,9 @@
 	"author": "bombitmanbomb",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/PolyLogiX-Studio/awn.js/issues"
+		"url": "https://github.com/werewolfboy13/awn.js/issues"
 	},
-	"homepage": "https://github.com/PolyLogiX-Studio/awn.js#readme",
+	"homepage": "https://github.com/werewolfboy13/awn.js#readme",
 	"dependencies": {
 		"node-fetch": "^2.6.1",
 		"uuid": "^8.3.2"
