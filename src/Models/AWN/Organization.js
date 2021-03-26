@@ -1,7 +1,7 @@
 const { User } = require("./User");
 const { Role } = require("./Role");
 const { DedicatedBox } = require("./DedicatedBox");
-const { Dictionary } = require("../Util/Dictionary");
+const { Dictionary } = require("@bombitmanbomb/utils");
 const { Instance } = require("./Instance");
 const { AdminList } = require("./AdminList");
 /**

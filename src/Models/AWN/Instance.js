@@ -1,5 +1,4 @@
-const { Dictionary } = require("../Util/Dictionary");
-const { List } = require("../Util/List");
+const { Dictionary, List } = require("@bombitmanbomb/utils");
 const { AdminList } = require("./AdminList");
 const { Game } = require("./Game");
 /**
@@ -68,6 +67,11 @@ class Instance {
 		}
 		this.banLists = List.ToList($b.banLists);
 		this.game = new Game($b.game, this._Bot);
+	}
+	async Delete() {
+		return await this._Bot.Http.DELETE(
+			`org/${this.orgId}/game-servers/instances/${this.id}`
+		);
 	}
 }
 module.exports = { Instance };

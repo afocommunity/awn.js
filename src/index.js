@@ -7,9 +7,9 @@
  * @see AWN
  */
 
-const { Http } = require("./Models/HTTP_CLIENT");
+const { Http } = require("@bombitmanbomb/http-client");
 const { EventEmitter } = require("events");
-const { TimeSpan } = require("./Models/Util/TimeSpan");
+const { TimeSpan } = require("@bombitmanbomb/utils");
 const { Organization } = require("./Models/AWN/Organization");
 const { User } = require("./Models/AWN/User");
 /**
@@ -19,7 +19,10 @@ const { User } = require("./Models/AWN/User");
 class AWN {
 	constructor() {
 		this.Events = new EventEmitter();
-		this.Http = new Http(this);
+		this.Http = new Http(this, {
+			AuthHeader: "X-AWN-ACCESS-TOKEN",
+			ENDPOINT: "https://api.awn.gg/v5",
+		});
 	}
 	//TODO IMPLIMENT Object Cache!!!!!
 	/**

@@ -1,4 +1,4 @@
-const { Dictionary } = require("../Util/Dictionary");
+const { Dictionary } = require("@bombitmanbomb/utils");
 const { Admin } = require("./Admin");
 /**
  *
