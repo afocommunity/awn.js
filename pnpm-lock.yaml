@@ -1,5 +1,5 @@
 dependencies:
-  '@bombitmanbomb/http-client': 1.1.2
+  '@bombitmanbomb/http-client': 1.2.2
 devDependencies:
   docdash: 1.2.0
   document: 0.4.7
@@ -26,20 +26,20 @@ packages:
     dev: true
     resolution:
       integrity: sha512-4vrIhfJyfNf+lCtXC2ck1rKSzDwciqF7IWFhXXrSOUC2O5DrVp+w4c6ed4AllTxhTkUP5x2tYj41VaxdVMMRDw==
-  /@bombitmanbomb/http-client/1.1.2:
+  /@bombitmanbomb/http-client/1.2.2:
     dependencies:
-      '@bombitmanbomb/utils': 1.1.0
+      '@bombitmanbomb/utils': 1.2.0
       node-fetch: 2.6.1
       uuid: 8.3.2
     dev: false
     resolution:
-      integrity: sha512-sJK7KZ/KP/LXC9uf1z8V4m4CEqWLeHTMbube+ii5lptaBsRrlDuWgw76GsR0BlGzZ+XBgWg5r02gh7uoz1HkZA==
-  /@bombitmanbomb/utils/1.1.0:
+      integrity: sha512-hcg1vwNLqF2fdsEVqZHdqzSM8WMbw5njYz3YYaxzLnpgrHzbqpTpGBsl+l+W6CGEvWdqQF/xHqi/7fuBMETjiA==
+  /@bombitmanbomb/utils/1.2.0:
     dev: false
     engines:
       node: '>=14.14.0'
     resolution:
-      integrity: sha512-WwglUmVTZRW9FVuePaI/IZqq8L4OFzkzmUnhShkTfHOfR1TO2yTs0CzOaWCieiyr5PoSjFHaS/C4JSo/2evWDw==
+      integrity: sha512-rAhMRkKEFr8xsbtjQW91kbvEE5o4v2IjzLu8nLpmIZtEAw4Q3Bxd5ZJ6NPHJgPY451PSOJrNl5p1pEVhY3dYFg==
   /@eslint/eslintrc/0.4.0:
     dependencies:
       ajv: 6.12.6
@@ -1129,7 +1129,7 @@ packages:
     resolution:
       integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==
 specifiers:
-  '@bombitmanbomb/http-client': ^1.1.2
+  '@bombitmanbomb/http-client': ^1.2.2
   docdash: ^1.2.0
   document: ^0.4.7
   dotenv: ^8.2.0

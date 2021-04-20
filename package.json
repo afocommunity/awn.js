@@ -23,7 +23,7 @@
 	},
 	"homepage": "https://github.com/werewolfboy13/awn.js#readme",
 	"dependencies": {
-		"@bombitmanbomb/http-client": "^1.1.2"
+		"@bombitmanbomb/http-client": "^1.2.2"
 	},
 	"devDependencies": {
 		"docdash": "^1.2.0",
