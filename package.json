@@ -27,7 +27,7 @@
 		"@bombitmanbomb/utils": "^1.2.0"
 	},
 	"devDependencies": {
-		"docdash": "^1.2.0",
+		"docdash": "^2.0.0",
 		"document": "^0.4.7",
 		"dotenv": "^8.2.0",
 		"eslint": "^7.21.0",
