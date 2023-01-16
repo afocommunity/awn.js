@@ -30,7 +30,7 @@
 		"docdash": "^1.2.0",
 		"document": "^0.4.7",
 		"dotenv": "^8.2.0",
-		"eslint": "^7.21.0",
+		"eslint": "^8.32.0",
 		"prettier": "^2.2.1"
 	}
 }
